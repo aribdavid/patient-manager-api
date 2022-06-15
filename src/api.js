@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors');
 const  bodyParser = require("body-parser");
+const { Patients } = require('./database/models');
 const errorHandler = require('./middlewares/errorHandler');
 const router = require('./routers');
 
@@ -10,8 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-const port = 3500 
-// process.env.PORT 
+const port = process.env.PORT 
 
 app.use(express.json());
 

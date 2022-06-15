@@ -1,4 +1,4 @@
-const { Patients } = require('./database/models');
+const { Patients } = require('../database/models');
 const createError = require('../utils/createError');
 
 const getByEmail = async (email) => {
@@ -23,11 +23,8 @@ const getById = async (id) => {
 };
 
 const getAll = async () => {
-  const patient = await Patients.findAll({
-    attributes: {
-    },
-  });
-
+  const patient = await Patients.findAll();
+  
   return patient;
 };
 
