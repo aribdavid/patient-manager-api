@@ -3,7 +3,6 @@ const express = require('express');
 const rescue = require('express-rescue');
 const patientController = require('../controllers/patientController');
 
-
 const router = express.Router();
 
 router.get('/patient', rescue(patientController.getAll));

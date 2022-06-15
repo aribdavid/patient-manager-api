@@ -24,22 +24,21 @@ const getById = async (id) => {
 
 const getAll = async () => {
   const patient = await Patients.findAll();
-  
+
   return patient;
 };
 
-const createPatient = async (name, date_of_birth, email, address) => {
+const createPatient = async (name, dateOfBirth, email, address) => {
   const foundPatient = await getByEmail(email);
 
   if (foundPatient) throw createError(409, 'Patient already registered');
 
   await Patients.create({
     name,
-    date_of_birth,
+    dateOfBirth,
     email,
-    address
+    address,
   });
-
 };
 
 const deletePatient = async (email) => {
@@ -58,4 +57,4 @@ module.exports = {
   getById,
   getByEmail,
   deletePatient,
-};    
+};

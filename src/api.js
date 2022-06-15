@@ -1,17 +1,15 @@
-const express = require('express')
+const express = require('express');
 const cors = require('cors');
-const  bodyParser = require("body-parser");
-const { Patients } = require('./database/models');
+const bodyParser = require('body-parser');
 const errorHandler = require('./middlewares/errorHandler');
 const router = require('./routers');
 
-const app = express()
+const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-
-const port = process.env.PORT 
+const port = process.env.PORT;
 
 app.use(express.json());
 
