@@ -1,4 +1,4 @@
-require('dotenv/config');
+require('dotenv').config();
 
 const { HOST, PASSWORD_POSTGRES, DATABASE, DB_USERNAME, DB_PORT } = process.env;
 
