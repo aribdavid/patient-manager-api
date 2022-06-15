@@ -31,16 +31,16 @@ const getAll = async () => {
   return patient;
 };
 
-const createPatient = async (displayName, email, password, image) => {
+const createPatient = async (name, date_of_birth, email, address) => {
   const foundPatient = await getByEmail(email);
 
   if (foundPatient) throw createError(409, 'Patient already registered');
 
   await Patients.create({
-    displayName,
+    name,
+    date_of_birth,
     email,
-    password,
-    image,
+    address
   });
 
 };

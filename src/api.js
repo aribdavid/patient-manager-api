@@ -1,9 +1,7 @@
 const express = require('express')
 const cors = require('cors');
-const  bodyParser = require("body-parser")
-
-
-
+const  bodyParser = require("body-parser");
+const errorHandler = require('./middlewares/errorHandler');
 
 const app = express()
 
@@ -11,16 +9,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-const port = process.env.PORT 
+const port = 3500 
+// process.env.PORT 
 
 app.use(express.json());
 
-// app.get('/', async (_req, res) => {
-
-
-//   const getPatients = await patients.findAll();
-
-//   return res.status(201).json(getPatients);
-// });
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Servidor online na porta ${port}`));
