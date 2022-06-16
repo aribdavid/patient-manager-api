@@ -2,10 +2,10 @@ const patientService = require('../services/patientService');
 
 const createPatient = async (request, response) => {
   const {
-    displayName, email, password, image,
+    name, dateOfBirth, email, address,
   } = request.body;
 
-  const token = await patientService.createPatient(displayName, email, password, image);
+  const token = await patientService.createPatient(name, dateOfBirth, email, address);
 
   response.status(201).json({ token });
 };

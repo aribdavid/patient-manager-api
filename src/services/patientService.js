@@ -35,7 +35,7 @@ const createPatient = async (name, dateOfBirth, email, address) => {
 
   await Patients.create({
     name,
-    dateOfBirth,
+    date_of_birth: dateOfBirth,
     email,
     address,
   });

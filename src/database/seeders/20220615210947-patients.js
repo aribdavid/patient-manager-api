@@ -1,14 +1,12 @@
-'use strict';
-
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Patients',
+  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert(
+    'Patients',
     [
       {
         name: 'Avraham',
         date_of_birth: '03/17/1955',
         email: 'leo@test.com',
         address: 'Fools street, 10',
-        // usamos a função CURRENT_TIMESTAMP do SQL para salvar a data e hora atual nos campos `createdAt` e `updatedAt`
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
         updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
@@ -17,7 +15,6 @@ module.exports = {
         date_of_birth: '05/09/1937',
         email: 'leo@test.com',
         address: 'Fools street, 10',
-        // usamos a função CURRENT_TIMESTAMP do SQL para salvar a data e hora atual nos campos `createdAt` e `updatedAt`
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
         updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
@@ -26,7 +23,6 @@ module.exports = {
         date_of_birth: '07/15/1988',
         email: 'leo@test.com',
         address: 'Fools street, 10',
-        // usamos a função CURRENT_TIMESTAMP do SQL para salvar a data e hora atual nos campos `createdAt` e `updatedAt`
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
         updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
@@ -35,7 +31,7 @@ module.exports = {
         date_of_birth: '09/08/1990',
         email: 'leo@test.com',
         address: 'Fools street, 10',
-        // usamos a função CURRENT_TIMESTAMP do SQL para salvar a data e hora atual nos campos `createdAt` e `updatedAt`
+
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
         updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
@@ -44,7 +40,7 @@ module.exports = {
         date_of_birth: '11/11/2010',
         email: 'leo@test.com',
         address: 'Fools street, 10',
-        // usamos a função CURRENT_TIMESTAMP do SQL para salvar a data e hora atual nos campos `createdAt` e `updatedAt`
+
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
         updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       }, {
@@ -52,12 +48,15 @@ module.exports = {
         date_of_birth: '01/06/1978',
         email: 'leo@test.com',
         address: 'Fools street, 10',
-        // usamos a função CURRENT_TIMESTAMP do SQL para salvar a data e hora atual nos campos `createdAt` e `updatedAt`
+
         createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
         updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
-   
-    ], {}),
+
+    ],
+
+    {},
+  ),
 
   down: async (queryInterface) => queryInterface.bulkDelete('Patients', null, {}),
 };
