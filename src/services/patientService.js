@@ -41,6 +41,20 @@ const createPatient = async (name, dateOfBirth, email, address) => {
   });
 };
 
+const updatePatient = async (name, dateOfBirth, email, address) => {
+  const foundPatient = await getByEmail(email);
+
+  // if (foundPatient) throw createError(409, 'Patient already registered');
+
+  await Patients.upsert({
+    id: foundPatient.id,
+    name,
+    date_of_birth: dateOfBirth,
+    email,
+    address,
+  });
+};
+
 const deletePatient = async (email) => {
   const patient = await getByEmail(email);
 
@@ -53,6 +67,7 @@ const deletePatient = async (email) => {
 
 module.exports = {
   createPatient,
+  updatePatient,
   getAll,
   getById,
   getByEmail,
