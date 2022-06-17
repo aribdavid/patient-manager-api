@@ -42,9 +42,9 @@ const updatePatient = async (request, response) => {
 };
 
 const deletePatient = async (request, response) => {
-  const { decodedData } = request;
+  const { email } = request.body;
 
-  await patientService.deletePatient(decodedData);
+  await patientService.deletePatient(email);
 
   return response.status(204).end();
 };
