@@ -28,7 +28,9 @@ const updatePatient = async (request, response) => {
     name, dateOfBirth, email, address,
   } = request.body;
 
-  await patientService.updatePatient(name, dateOfBirth, email, address);
+  const { id } = request.params;
+
+  await patientService.updatePatient(id, name, dateOfBirth, email, address);
 
   return response.status(202).end();
 };
