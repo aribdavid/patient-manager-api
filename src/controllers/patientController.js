@@ -23,6 +23,16 @@ const getById = async (request, response) => {
   return response.status(200).json(patients);
 };
 
+const updatePatient = async (request, response) => {
+  const {
+    name, dateOfBirth, email, address,
+  } = request.body;
+
+  await patientService.updatePatient(name, dateOfBirth, email, address);
+
+  return response.status(202).end();
+};
+
 const deletePatient = async (request, response) => {
   const { decodedData } = request;
 
@@ -32,6 +42,7 @@ const deletePatient = async (request, response) => {
 };
 module.exports = {
   createPatient,
+  updatePatient,
   getAll,
   getById,
   deletePatient,

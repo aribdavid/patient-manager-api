@@ -44,7 +44,7 @@ const createPatient = async (name, dateOfBirth, email, address) => {
 const updatePatient = async (name, dateOfBirth, email, address) => {
   const foundPatient = await getByEmail(email);
 
-  // if (foundPatient) throw createError(409, 'Patient already registered');
+  if (!foundPatient) throw createError(409, 'Patient not Found!');
 
   await Patients.upsert({
     id: foundPatient.id,
