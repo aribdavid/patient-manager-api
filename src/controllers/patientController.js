@@ -2,10 +2,16 @@ const patientService = require('../services/patientService');
 
 const createPatient = async (request, response) => {
   const {
-    name, dateOfBirth, email, address,
+    firstName, lastName, dateOfBirth, email, address,
   } = request.body;
 
-  const token = await patientService.createPatient(name, dateOfBirth, email, address);
+  const token = await patientService.createPatient(
+    firstName,
+    lastName,
+    dateOfBirth,
+    email,
+    address,
+  );
 
   response.status(201).json({ token });
 };
@@ -25,14 +31,14 @@ const getById = async (request, response) => {
 
 const updatePatient = async (request, response) => {
   const {
-    name, dateOfBirth, email, address,
+    firstName, lastName, dateOfBirth, email, address,
   } = request.body;
 
   const { id } = request.params;
 
-  await patientService.updatePatient(id, name, dateOfBirth, email, address);
+  await patientService.updatePatient(id, firstName, lastName, dateOfBirth, email, address);
 
-  return response.status(202).end();
+  return response.status(202).json({ message: 'Patient updated Successfully' });
 };
 
 const deletePatient = async (request, response) => {
