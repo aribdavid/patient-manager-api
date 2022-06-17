@@ -53,12 +53,10 @@ const updatePatient = async (id, firstName, lastName, dateOfBirth, email, addres
   });
 };
 
-const deletePatient = async (email) => {
-  const patient = await getByEmail(email);
-
+const deletePatient = async (id) => {
   await Patients.destroy({
     where: {
-      id: patient.id,
+      id,
     },
   });
 };
